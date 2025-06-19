@@ -1,7 +1,7 @@
 let life = 5
 let members = 3
 let backpack = []
-let option = ""
+var option = ""
 const messageIntroduction = "Has logrado sobrevivir al impacto inicial del apagón global. La ciudad es un caos. El grupo tiene pocas provisiones, sin saber qué ocurrió realmente. Todo indica que si no logran encontrar suministros, se convertirán en una estadística más. Hay rumores de una salida segura a través del sistema subterráneo de metro. Pero antes, debes resistir en la superficie el tiempo suficiente para prepararte."
 const messageTwo =  "El hambre aprieta y la sed comienza a nublar el juicio del grupo. Es momento de actuar con rapidez, pero también con cautela. ¿Dónde buscar recursos vitales? Ingrese A para:  Ir al supermercado abandonado Ingrese B para: Robar mochila a un sobreviviente "
 const messageThree =  "Con algo de alimento en la mochila, el grupo necesita un lugar seguro donde recuperarse y planear el siguiente movimiento. La ciudad no perdona a quienes se quedan mucho tiempo al descubierto. Ingrese A para: Esconderse en una farmacia. Ingrese B para:  Ir a una estación de buses. Ingrese C para: Refugiarse en una tienda de campaña abandonada "
@@ -11,11 +11,11 @@ const messageSix = "El grupo necesita información. Las rutas están colapsadas,
 const messageSeven = "La noche se acerca. Para avanzar rápido deben decidir: improvisar un medio de transporte o confiar en sus propias fuerzas. El tiempo es limitado. Ingrese A para: Reparar bicicleta. Ingrese B para: Ir a pie"
 function showMessage(message){
     let joined = prompt(message);
-    return joined.toUpperCase
+    return joined.toUpperCase();
 }//Mensje Introduccion
 alert(messageIntroduction);
 option = showMessage(messageTwo); //Primera seccion
-if (option == 'A'){
+if (option == "A"){
     backpack.push("food", "water")
     life--   
 }
@@ -25,42 +25,39 @@ else{
 }
 option = showMessage(messageThree); //Segunda seccion
 switch (option) {
-    case 'A':
+    case "A":
         backpack.push("kit")
         life++
         break;
-    case 'B':
+    case "B":
         life--
         break;
-    case 'C':
+    case "C":
         backpack.push("battery")
         life--
         break;
-    default:
-        alert("Ingrese un dato valido")
-        break;
+
 
 }
 console.log(option)
 option = showMessage(messageFour); //Tercer seccion
 switch (option) {
-    case 'A':
+    case "A":
         backpack.push("map")
         members++
         break;
-    case 'B':
+    case "B":
         members--
         break;
-    case 'C':
+    case "C":
         backpack.push("flashlight")
         life--
-    case 'D':
+        break;
+    case "D":
         backpack.push("food")
         members -=2
         break;
-    default:
-        alert("Ingrese un dato valido")
-        break;
+
 }
 console.log(option)
 option = showMessage(messageFive);
@@ -69,23 +66,23 @@ if(option == 'A'){
 }
 option = showMessage(messageSix);
 switch (option) {
-    case 'A':
+    case "A":
         backpack.push("intel")
         break;
-    case 'B':
+    case "B":
         life--
         break;
-    case 'C':
+    case "C":
         backpack.push("acces-card")
         break;
-    default:
-        alert("Ingrese un dato valido")
-        break;
-}
-option = showMessage(messageSeven);
-option == 'A' ? backpack.push("medicines", "battery") : life--
 
-life >= 3 && backpack.lenght >= 2 && map in backpack ? alert("Puede ingresar al tunerl del metro") : alert("Se quedaron atrapaditos")
+}
+console.log(backpack,life,members)
+
+option = showMessage(messageSeven);
+option == "A" ? backpack.push("medicines", "battery") : life--
+
+life >= 3 && backpack.length >= 2 && backpack.includes(("map")) ? alert("Puede ingresar al tunerl del metro") : alert("Se quedaron atrapaditos")
     
 
 
